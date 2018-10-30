@@ -34,8 +34,6 @@ client.login(process.env.BOT_TOKEN);
 
 
 
-//الرد التلقائي
-
 client.on('message', msg => {
     if (msg.content === 'السلام عليكم') {
        msg.reply('**و عليكم السلام و رحمة الله و بركاته:heart: **');
@@ -192,11 +190,11 @@ client.on("message", message => { //clear
 //صورة السيرفر
 
 client.on("message", message => {
-    const prefix = "صورة"
+    const prefix = ""
               
           if(!message.channel.guild) return;
    if(message.author.bot) return;
-      if(message.content === "#image"){ 
+      if(message.content === "صورة"){ 
           const embed = new Discord.RichEmbed()
   
       .setTitle(`This is  ** ${message.guild.name} **  Photo !`)
@@ -215,6 +213,7 @@ client.on("message", message => {
 //الباند
 
 client.on('message', message => {
+    var prefix = ""
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -259,6 +258,7 @@ client.on('message', message => {
 //الطرد
 
 client.on('message', message => {
+    var prefix = "*"
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -267,7 +267,7 @@ client.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "كيك") {
+  if (command == "طرد") {
                if(!message.channel.guild) return message.reply('** This command only for servers**');
          
   if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**You Don't Have ` KICK_MEMBERS ` Permission**");
@@ -299,7 +299,7 @@ client.on('message', message => {
 //قفل و فتح الشات
 
 client.on('message', message => {
-	    var prefix = ""
+var prefix = "";
        if(message.content === prefix + "قفل") {
                            if(!message.channel.guild) return message.reply('** This command only for servers**');
 
@@ -461,92 +461,6 @@ client.on('message', message => {
 }); 
 
 
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('كل زق')){
-        message.delete()
-      message.channel.sendMessage("", {embed: {
-        title: "لا تسب",
-        color: 0x06DF00,
-        description: "مَّا يَلْفِظُ مِن قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌ ",
-        footer: {
-          text: "🌟Five Stars🌟    [ !^мohαmε𝕯^!#4476      -     W͈̪̣AR NI̴̧͝GH̴̵T͇#4506 ]"
-        }
-      }}).then(msg => {msg.delete(10000)});
-                          }
-
-     
-}); 
-
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('زق')){
-        message.delete()
-      message.channel.sendMessage("", {embed: {
-        title: "لا تسب",
-        color: 0x06DF00,
-        description: "مَّا يَلْفِظُ مِن قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌ ",
-        footer: {
-          text: "🌟Five Stars🌟    [ !^мohαmε𝕯^!#4476      -     W͈̪̣AR NI̴̧͝GH̴̵T͇#4506 ]"
-        }
-      }}).then(msg => {msg.delete(10000)});
-                          }
-
-     
-}); 
-
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('خرا')){
-        message.delete()
-      message.channel.sendMessage("", {embed: {
-        title: "لا تسب",
-        color: 0x06DF00,
-        description: "مَّا يَلْفِظُ مِن قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌ ",
-        footer: {
-          text: "🌟Five Stars🌟    [ !^мohαmε𝕯^!#4476      -     W͈̪̣AR NI̴̧͝GH̴̵T͇#4506 ]"
-        }
-      }}).then(msg => {msg.delete(10000)});
-                          }
-
-     
-}); 
-
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('طيز')){
-        message.delete()
-      message.channel.sendMessage("", {embed: {
-        title: "لا تسب",
-        color: 0x06DF00,
-        description: "مَّا يَلْفِظُ مِن قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌ ",
-        footer: {
-          text: "🌟Five Stars🌟    [ !^мohαmε𝕯^!#4476      -     W͈̪̣AR NI̴̧͝GH̴̵T͇#4506 ]"
-        }
-      }}).then(msg => {msg.delete(10000)});
-                          }
-
-     
-}); 
-
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('احول')){
-        message.delete()
-      message.channel.sendMessage("", {embed: {
-        title: "لا تسب",
-        color: 0x06DF00,
-        description: "مَّا يَلْفِظُ مِن قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌ ",
-        footer: {
-          text: "🌟Five Stars🌟    [ !^мohαmε𝕯^!#4476      -     W͈̪̣AR NI̴̧͝GH̴̵T͇#4506 ]"
-        }
-      }}).then(msg => {msg.delete(10000)});
-                          }
-
-     
-}); 
-
-
 
 //مانع نشر الانفايت
 
@@ -630,6 +544,7 @@ client.on ("guildMemberRemove", member => {
 //الميوت و الغاء الميوت
 
 client.on('message', async message =>{
+  var prefix = "";
 const ms = require("ms");
 if (message.author.omar) return;
 if (!message.content.startsWith(prefix)) return;
@@ -695,6 +610,12 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return mess
   }
  
 });
+
+
+
+
+
+
 
 
 
