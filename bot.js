@@ -299,6 +299,7 @@ client.on('message', message => {
 //قفل و فتح الشات
 
 client.on('message', message => {
+	    var prefix = "#"
        if(message.content === prefix + "قفل") {
                            if(!message.channel.guild) return message.reply('** This command only for servers**');
 
