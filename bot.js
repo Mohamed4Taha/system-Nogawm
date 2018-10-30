@@ -258,7 +258,7 @@ client.on('message', message => {
 //الطرد
 
 client.on('message', message => {
-    var prefix = "*"
+    var prefix = ""
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -267,7 +267,7 @@ client.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "طرد") {
+  if (command == "كيك") {
                if(!message.channel.guild) return message.reply('** This command only for servers**');
          
   if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**You Don't Have ` KICK_MEMBERS ` Permission**");
@@ -299,7 +299,6 @@ client.on('message', message => {
 //قفل و فتح الشات
 
 client.on('message', message => {
-var prefix = "";
        if(message.content === prefix + "قفل") {
                            if(!message.channel.guild) return message.reply('** This command only for servers**');
 
@@ -473,7 +472,7 @@ client.on('message', message => {
         color: 0x06DF00,
         description: "يمنع النشر في هذا السيرفر",
         footer: {
-          text: "🌟Five Stars🌟    [ !^мohαmε𝕯^!#4476      -     W͈̪̣AR NI̴̧͝GH̴̵T͇#4506 ]"
+          text: "محمد طه"
         }
       }}).then(msg => {msg.delete(3000)});
                           }
