@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '.'
+const prefix = ' '
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`LEADERS bot`,"http://twitch.tv/S-F")
+client.user.setGame(`Nogawm`,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -148,7 +148,7 @@ client.on("guildMemberAdd", member => {
 //معلومات عن البوت
 
          client.on('message', message => {
-            if (message.content.startsWith("#bot")) {
+            if (message.content.startsWith("بوت")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .addField(' البنق🚀 ',`[${Date.now() - message.createdTimestamp}]`) 
@@ -165,7 +165,7 @@ client.on("guildMemberAdd", member => {
 
 client.on("message", message => { //clear
               var args = message.content.substring(prefix.length).split(" ");
-              if (message.content.startsWith("#clear")) {
+              if (message.content.startsWith("مسح")) {
                   if(!message.channel.guild) return message.reply('**❌ اسف لكن هذا الامر للسيرفرات فقط **');         
      if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**⚠  لا يوجد لديك صلاحية لمسح الشات**');
           var msg;
@@ -192,7 +192,7 @@ client.on("message", message => { //clear
 //صورة السيرفر
 
 client.on("message", message => {
-    const prefix = "#"
+    const prefix = "صورة"
               
           if(!message.channel.guild) return;
    if(message.author.bot) return;
@@ -215,7 +215,6 @@ client.on("message", message => {
 //الباند
 
 client.on('message', message => {
-    var prefix = "#"
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -224,7 +223,7 @@ client.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "ban") {
+  if (command == "باند") {
                if(!message.channel.guild) return message.reply('** This command only for servers**');
          
   if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
@@ -256,35 +255,10 @@ client.on('message', message => {
 
 
 
-//الغاء الباند 
-
-client.on('message' , najzx => {
-    var prefix = "$";
-    let user = najzx.mentions.users.first()|| client.users.get(najzx.content.split(' ')[1])
-    if(najzx.content.startsWith(prefix + 'unban')) {
-        if(!najzx.member.hasPermission('ADMINISTRATOR')) return najzx.channel.send('❌|**\`ADMINISTRATOR\`لا توجد لديك رتبة`**');
-        if(!user) return  najzx.channel.send(`Do this ${prefix} <@ID user> \n or \n ${prefix}unban ID user`);
-        najzx.guild.unban(user);
-        najzx.guild.owner.send(`لقد تم فك الباند عن الشخص \n ${user} \n By : <@${najzx.author.id}>`)
-        var embed = new Discord.RichEmbed()
-        .setThumbnail(najzx.author.avatarURl)
-        .setColor("RANDOM")
-        .setTitle('**Unban** !')
-        .addField('**User Unban :** ', `${user}` , true)
-        .addField('**By :**' ,       ` <@${najzx.author.id}> ` , true)
-        .setAuthor(najzx.guild.name)
-       .setFooter('Requested by '+najzx.author.username, najzx.author.avatarURL)
-        najzx.channel.sendEmbed(embed)
-    }
-  });
-
-
-
 
 //الطرد
 
 client.on('message', message => {
-    var prefix = "#"
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -293,7 +267,7 @@ client.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "kick") {
+  if (command == "كيك") {
                if(!message.channel.guild) return message.reply('** This command only for servers**');
          
   if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**You Don't Have ` KICK_MEMBERS ` Permission**");
@@ -325,8 +299,8 @@ client.on('message', message => {
 //قفل و فتح الشات
 
 client.on('message', message => {
-var prefix = "#";
-       if(message.content === prefix + "mutechannel") {
+	    var prefix = ""
+       if(message.content === prefix + "قفل") {
                            if(!message.channel.guild) return message.reply('** This command only for servers**');
 
    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
@@ -338,7 +312,7 @@ var prefix = "#";
               });
                 }
 //FIRE BOT
-    if(message.content === prefix + "unmutechannel") {
+    if(message.content === prefix + "فتح") {
                         if(!message.channel.guild) return message.reply('** This command only for servers**');
 
    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__ليس لديك صلاحيات__**');
@@ -641,7 +615,7 @@ client.on('message', async message =>{
 
 client.on ("guildMemberAdd", member => {
   
-   var role = member.guild.roles.find ("name", "ＭＥＭＢＥＲ");
+   var role = member.guild.roles.find ("name", "Member");
    member.addRole (role);
   
 })
@@ -656,7 +630,6 @@ client.on ("guildMemberRemove", member => {
 //الميوت و الغاء الميوت
 
 client.on('message', async message =>{
-  var prefix = "#";
 const ms = require("ms");
 if (message.author.omar) return;
 if (!message.content.startsWith(prefix)) return;
@@ -665,7 +638,7 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return mess
 var command = message.content.split(" ")[0];
 command = command.slice(prefix.length);
 var args = message.content.split(" ").slice(1);
-    if(command == "mute") {
+    if(command == "اسكت") {
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!tomute) return message.reply("**يجب عليك المنشن اولاّ**:x: ") .then(m => m.delete(5000));
     if(tomute.hasPermission("MANAGE_MESSAGES"))return      message.channel.send('**للأسف لا أمتلك صلاحية** `MANAGE_MASSAGEES`');
@@ -703,7 +676,7 @@ setTimeout(function(){
  
  
   }
-if(command === `unmute`) {
+if(command === `تكلم`) {
   if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.sendMessage("**ليس لديك صلاحية لفك عن الشخص ميوت**:x: ").then(m => m.delete(5000));
 if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.reply("**I Don't Have `MANAGE_ROLES` Permission**").then(msg => msg.delete(6000))
  
@@ -725,182 +698,3 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return mess
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//الهيلب
-
-client.on("message", message => {
-	var prefix = "#";
- if (message.content === "#help") {
-  const embed = new Discord.RichEmbed()  
-      .setColor("RANDOM") 
-      .setDescription(`
-	  
-	         Please Select Your Language 
-${prefix}help-ar
-${prefix}help-en
-			 
-	  `)
-   message.channel.sendEmbed(embed)
-    
-   }
-   });
-  
-   client.on("message", message => {
- if (message.content === "#help-ar") {
-  const embed = new Discord.RichEmbed()  
-      .setColor("RANDOM") 
-      .setDescription(`
-	  
-	        اختر: 
- 
-#help-gn-ar ⇏ اوامر عامة
-#help-ad-ar ⇏ اوامر ادارة السيرفر
-			 
-`)
-message.channel.sendEmbed(embed)
- 
-}
-});
-
-client.on("message", message => {
-    if (message.content === "#help-en") {
-     const embed = new Discord.RichEmbed()  
-         .setColor("RANDOM") 
-         .setDescription(`
-         
-              Chose: 
-                
-   #help-gn-en ⇏ General commands
-   
-   #help-ad-en ⇏ Server management commands
-               
-   `)
-   message.channel.sendEmbed(embed)
-    
-   }
-   });
-
-   client.on("message", message => {
-	var prefix = "#";
- if (message.content === "#help-gn-ar") {
-	 message.channel.send('**تم ارسال رسالة في الخاص** :mailbox_with_mail: ');
-  const embed = new Discord.RichEmbed() 
-      .setColor("RANDOM")
-      .setDescription(`
-             
-===================== اوامر عامة =====================
-
-#bot ➾ سرعة اتصالك بالانترنت
-#image ➾ صورة السيرفر
-
-=========================================================
-**و قريبا المزيد من الاوامر**
-=========================================================
-Support server : https://discord.gg/Fq233KJ - https://discord.gg/KPpVGvv
-`)
-   message.author.sendEmbed(embed)
-    
-   }
-   }); 
-
-
-
-
-
-   client.on("message", message => {
-	var prefix = "#";
- if (message.content === "#help-gn-en") {
-	 message.channel.send('**Check your dm** :mailbox_with_mail: ');
-  const embed = new Discord.RichEmbed() 
-      .setColor("RANDOM")
-      .setDescription(`
-             
-==================== General commands ===================== 
-
-#bot ➾ bot details
-#image ➾ server image
-
-=========================================================
-More commands soon 
-=========================================================
-Support server : https://discord.gg/Fq233KJ - https://discord.gg/KPpVGvv
-`)
-   message.author.sendEmbed(embed)
-    
-   }
-   }); 
-
-   client.on("message", message => {
-	var prefix = "#";
- if (message.content === "#help-ad-ar") {
-	 message.channel.send('**تم ارسال رسالة بالخاص** :mailbox_with_mail: ');
-  const embed = new Discord.RichEmbed() 
-      .setColor("RANDOM")
-      .setDescription(`
-             
-==================== اوامر ادارية ===================== 
-
-#mute ➾ اعطاء ميوت لشخص
-#unmute ➾ الغاء الميوت من شخص
-#clear ➾ حذف الرسائل
-#ban ➾ اعطاء باند
-#kick ➾ الطرد من السيرفر
-#mutechannel ➾ قفل الشات
-#unmutechannel ➾ فتح الشات
-
-=========================================================
-وقريباً المزيد من الاكواد
-=========================================================
-Support server : https://discord.gg/Fq233KJ - https://discord.gg/KPpVGvv
-`)
-   message.author.sendEmbed(embed)
-    
-}
-}); 
-
-client.on("message", message => {
- var prefix = "#";
-if (message.content === "#help-ad-en") {
-  message.channel.send('**Check your dm** :mailbox_with_mail: ');
-const embed = new Discord.RichEmbed() 
-   .setColor("RANDOM")
-   .setDescription(`
-          
-==================== Management commands ===================== 
-
-#mute ➾ give mute
-#unmute ➾ unmute
-#clear ➾ clear all messages
-#ban ➾ give ban
-#kick ➾ kick members from server
-#mutechannel ➾ close chat
-#unmutechannel ➾ open chat
-
-=========================================================
-More commands soon
-=========================================================
-Support server : https://discord.gg/Fq233KJ - https://discord.gg/KPpVGvv
-`)
-message.author.sendEmbed(embed)
- 
-}
-}); 
